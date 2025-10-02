@@ -1,15 +1,15 @@
 import { useState, useRef } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import mapImage from "./assets/map.png";
-import graphData from "./graph.json"; // ✅ Load existing graph
+import graphData from "./graph.json"; // Load existing graph
 
 function App() {
-  const [imgSize, setImgSize] = useState(null); // { w, h } natural size
-  const [nodes, setNodes] = useState(graphData.nodes || []); // ✅ preload nodes
-  const [edges, setEdges] = useState(graphData.edges || []); // ✅ preload edges
+  const [imgSize, setImgSize] = useState(null);
+  const [nodes, setNodes] = useState(graphData.nodes || []); // preload nodes
+  const [edges, setEdges] = useState(graphData.edges || []); // preload edges
   const [isGraphing, setIsGraphing] = useState(false);
   const [selectedNode, setSelectedNode] = useState(null);
-  const [history, setHistory] = useState([]); // undo history stack
+  const [history, setHistory] = useState([]);
 
   const wrapperRef = useRef(null);
   const imgRef = useRef(null);
@@ -176,7 +176,7 @@ function App() {
         minScale={0.2}
         maxScale={6}
         limitToBounds={false}
-        doubleClick={{ disabled: true }} // ✅ disable double click zoom
+        doubleClick={{ disabled: true }} // disable double click zoom
       >
         <TransformComponent>
           <div
